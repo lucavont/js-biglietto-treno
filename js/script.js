@@ -1,7 +1,7 @@
 var genBtnEl = document.getElementById('genera-btn');
 
 genBtnEl.addEventListener('click', function() {
-    var nameSur = document.getElementById('nome-cognome');
+    var nameSur = document.getElementById('nome-cognome').value;
     var distance = document.getElementById('km-da-percorrere').value;
     console.log(distance);
     var ticketCost = 0.21;
@@ -9,12 +9,11 @@ genBtnEl.addEventListener('click', function() {
     var sconto20 = distance * ticketCost * 0.2;
     var sconto40 = distance * ticketCost * 0.4;
 
-    console.log(sconto20);
-    console.log(sconto40);
+    console.log(nameSur)
 
     var ticketName = document.getElementById('nameSurname')
     ticketName.innerHTML = nameSur.value;
-    document.getElementById('ticket').style.display = 'block';
+
 
     var ticketOffer = document.getElementById('discountCode');
     ticketOffer.innerHTML = ageDiscount.value;
@@ -26,15 +25,31 @@ genBtnEl.addEventListener('click', function() {
     document.getElementById("carriage").innerHTML = randomCarrozza;
 
     var ticketPrice = document.getElementById('prezzo');
-
-    if (ageDiscount == 'minorenne') {
-        ticketPrice.innerHTML = (distance * ticketCost - sconto20).toFixed(2);
-        document.getElementById('discountCode').innerHTML = "Sconto minorenni 20%";
-    } else if (ageDiscount == 'over65') {
-        ticketPrice.innerHTML = (distance * ticketCost - sconto40).toFixed(2);
-        document.getElementById('discountCode').innerHTML = "Sconto over 65 anni 40%";
-    } else if (ageDiscount == 'altri') {
-        ticketPrice.innerHTML = (distance * ticketCost).toFixed(2);
-        document.getElementById('discountCode').innerHTML = "Nessuno sconto";
+    if (nameSur == '' || distance == '') {
+        alert('Il contenuto è nullo o non valido');
+    } else {
+        document.getElementById('ticket').style.display = 'block';
+        if (ageDiscount == 'minorenne') {
+            ticketPrice.innerHTML = (distance * ticketCost - sconto20).toFixed(2) + "€";
+            document.getElementById('discountCode').innerHTML = "Sconto minorenni 20%";
+        } else if (ageDiscount == 'over65') {
+            ticketPrice.innerHTML = (distance * ticketCost - sconto40).toFixed(2) + "€";
+            document.getElementById('discountCode').innerHTML = "Sconto over 65 anni 40%";
+        } else {
+            ticketPrice.innerHTML = (distance * ticketCost).toFixed(2) + "€";
+            document.getElementById('discountCode').innerHTML = "Nessuno sconto";
+        }
     }
+
+
+
+})
+
+var deleteBtn = document.getElementById('cancel-btn');
+
+deleteBtn.addEventListener('click', function() {
+    document.getElementById('ticket').style.display = 'none';
+    document.getElementById('nome-cognome').value = '';
+    document.getElementById('km-da-percorrere').value = '';
+    document.getElementById('fascia-eta').value = 'none';
 })
