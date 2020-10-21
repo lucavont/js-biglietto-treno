@@ -19,14 +19,14 @@
             </div>
             <div class="col-lg-4">
                 <h3>Km da percorrere</h3>
-                <input type="text" name="" id="km-da-percorrere">
+                <input type="text" name="" id="km-da-percorrere" value="">
             </div>
             <div class="col-lg-4">
                 <h3>Fascia d'età</h3>
                 <select name="" id="fascia-eta">
-                    <option value="under-age">Minorenne</option>
-                    <option value="over-age">Over 65</option>
-                    <option value="minorenne">Minorenne</option>
+                    <option id="under-age" value="Offerta per minori di 18 anni">Minorenne</option>
+                    <option id="over-age" value="Offerta per over 65 anni">Over 65</option>
+                    <option value="minorenne">Tra i 18 e i 65 anni</option>
                 </select>
             </div>
         </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <h1>IL TUO BIGLIETTO</h1>
-    <div class="container">
+    <div class="container ticket" id="ticket">
         <div class="row">
             <div class="col-lg-3">
                 <h3>NOME PASSEGGERO</h3>

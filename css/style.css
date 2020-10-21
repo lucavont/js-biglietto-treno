@@ -7,3 +7,9 @@ body {
     background-color: white;
     color: #B91450;
 }
+
+.ticket {
+    display: none;
+    background-color: white;
+    color: #B91450;
+}

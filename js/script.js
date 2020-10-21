@@ -1,18 +1,23 @@
-var yourAge = document.getElementById('fascia-eta');
-var yourKm = document.getElementById('km-da-percorrere');
-var underAge = document.getElementById('under-age');
-var overAge = document.getElementById('over-age');
-var ticketPrice = yourKm * 0.21;
-var sconto20 = (ticketPrice * 20) / 100;
-var sconto40 = (ticketPrice * 40) / 100;
+var genBtnEl = document.getElementById('genera-btn');
 
-if (underAge) {
-    ticketPrice = ticketPrice - sconto20;
-} else if (overAge) {
-    ticketPrice = ticketPrice - sconto40;
-} else(ticketPrice)
+genBtnEl.addEventListener('click', function() {
+    var nameSur = document.getElementById('nome-cognome');
+    var distance = document.getElementById('km-da-percorrere');
+    var ageDiscount = document.getElementById('fascia-eta');
+    // var price = distance * 0.21;
+    var sconto20 = distance * 0.2;
 
-console.log(ticketPrice.toFixed(2));
+    var ticketName = document.getElementById('nameSurname')
+    ticketName.innerHTML = nameSur.value;
+    document.getElementById('ticket').style.display = 'block';
 
+    var ticketOffer = document.getElementById('discountCode');
+    ticketOffer.innerHTML = ageDiscount.value;
 
-document.getElementById("prezzo").innerHTML = ticketPrice.toFixed(2) + '€';
+    var TicketPrice = document.getElementById('prezzo');
+
+    if (ageDiscount = 'under-age') {
+        TicketPrice.innerHTML = distance.value - sconto20 + "€";
+    }
+
+})
